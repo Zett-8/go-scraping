@@ -1,25 +1,24 @@
-package basic
+package main
 
 import (
-  "fmt"
-  "net/http"
-  "io/ioutil"
+	"fmt"
+	"io/ioutil"
+	"net/http"
 )
 
 func main() {
-  url := "http://toshikikamei.com"
+	url := "http://toshikikamei.com"
 
-  resp, err := http.Get(url)
-  if err != nil {
-    fmt.Println("error occured")
-    panic(err)
-  }
-  defer resp.Body.Close()
+	resp, err := http.Get(url)
+	if err != nil {
+		fmt.Println("error occured")
+		panic(err)
+	}
+	defer resp.Body.Close()
 
-  byteArray, err := ioutil.ReadAll(resp.Body)
-  if err != nil {
-    panic(err)
-  }
-  fmt.Println(string(byteArray))
+	byteArray, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(byteArray))
 }
-
